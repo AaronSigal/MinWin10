@@ -64,30 +64,44 @@ void write3db() {
 
 void writeMdb() {
 	ofstream fs;
-	fs.open("Mdb.list");
+	fs.open("Mdb.ps1");
 	
-	//
+	for(tuple<string, string, bool> tp: packages) {
+		
+	}
 	
 	fs.close();
 }
 
 void writeMdbx() {
 	ofstream fs;
-	fs.open("Mdbx.list");
+	fs.open("Mdbx.ps1");
+	
+	for(tuple<string, string, bool> tp: packages) {
+		
+	}
 	
 	fs.close();
 }
 
 void writeFdb() {
 	ofstream fs;
-	fs.open("Fdb.list");
+	fs.open("Fdb.ps1");
+	
+	for(tuple<string, string, bool> tp: packages) {
+		
+	}	
 	
 	fs.close();
 }
 
 void writeCdb() {
 	ofstream fs;
-	fs.open("Cdb.list");
+	fs.open("Cdb.ps1");
+	
+	for(tuple<string, string, bool> tp: packages) {
+		
+	}	
 	
 	fs.close();
 }
@@ -204,6 +218,10 @@ int main() {
 	while (!done) {
 		getline(cin, userInput);
 		
+/******************************************************************************************************************************************************************
+* These functions should not be used for anything other than pre-initialization methods. Only put things here that need to occur before the removal script is run *
+*******************************************************************************************************************************************************************/
+		
 		//If the exit option is selected
 		if (userInput == "Exit" || userInput == "exit") {
 			
@@ -258,6 +276,10 @@ int main() {
 		
 	}
 	
+/******************************************************************************************************************************************************************
+* End of the Pre-Intialization phase                                                                                                                              *
+*******************************************************************************************************************************************************************/
+	
 	//At this point we can be sure the user wants to continue with the program, so executing these scripts isn't wasteful
 	clog << "Extracting files..." << endl;
 	writePackageListSave();
@@ -267,14 +289,17 @@ int main() {
 	
 	loadPackageList("ts.txt");
 	
+/******************************************************************************************************************************************************************
+* These functions should be used to call only the scripts that perform the removal of apps, or the auxialary methods required to launch them.                     *
+*******************************************************************************************************************************************************************/
+	
 	if (userInput == "3db") {
 		write3db();
 		system("powershell.exe .//3db.ps1");
-		//system("powershell.exe -windowstyle hidden .//3db.ps1");
 	}
 		
 	else if (userInput == "Mdb") {
-
+		
 	}
 		
 	else if (userInput == "Mdbx") {

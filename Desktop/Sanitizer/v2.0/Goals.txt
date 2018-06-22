@@ -1,0 +1,4 @@
+Goals for Version 2
+
+- Implement colored text
+- Structure program using design pattersn (Command pattern, strategy pattern?)

@@ -17,8 +17,10 @@ class Terminal {
 		static Terminal* instanceOf() {	
 			
 			//create a new instance if one doesn't exist
-			if (instance) {
+			if (instance == 0) {
 				instance = new Terminal();
+			} else {
+				return instance;
 			}
 		}
 		
@@ -34,6 +36,7 @@ class Terminal {
 		void printPrompt() {
 			
 			//user-prompt
+			std::cout << std::endl;
 			std::cout << "| Welcome to Windows Sanitizer    |" << std::endl;
 			std::cout << "| Developed by Aaron Sigal, 2018  |" << std::endl;
 			std::cout << "| By using this program you       |" << std::endl;
@@ -46,12 +49,15 @@ class Terminal {
 			std::cout << std::endl << "Use 'help' for assistance" << std::endl;
 		}
 		
+		//if true, program terminates
+		bool done = false;
+		
 		bool isDone() {
 			return done;
 		}
 		
-		void setDone(bool done) {
-			this->done = done;
+		void setDone(bool b) {
+			done = b;
 		}
 		
 	protected:
@@ -68,8 +74,7 @@ class Terminal {
 		//the pointer to the actual instance of the single terminal
 		static Terminal* instance;
 		
-		//if true, program terminates
-		bool done = false;
+		
 
 };
 

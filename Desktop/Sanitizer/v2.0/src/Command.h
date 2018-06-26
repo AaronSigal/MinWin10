@@ -1,6 +1,9 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
+#include <memory>
+#include "Terminal.h"
+
 //Abstract command class for Command pattern
 class Command {
 	public:
@@ -29,4 +32,11 @@ class ClearHistoryCommand : public Command {
 		void execute();
 };
 
+class ExitCommand : public Command {
+	public:
+		void execute();
+};
+
+//Smart pointer definition for Commands.
+typedef std::shared_ptr<Command> CommandPtr;
 #endif
